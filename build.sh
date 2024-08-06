@@ -44,10 +44,10 @@ rpm-ostree install wireguard-tools
 rpm-ostree install fastfetch
 
 # # build libs
-rpm-ostree install gcc
-rpm-ostree install make
-rpm-ostree install python3-pip
-rpm-ostree install flatpak-builder                                  # Tool to build flatpaks from source
+# rpm-ostree install gcc
+# rpm-ostree install make
+# rpm-ostree install python3-pip
+# rpm-ostree install flatpak-builder                                  # Tool to build flatpaks from source
 
 # # printer / scanner utils
 rpm-ostree install epson-inkjet-printer-escpr
