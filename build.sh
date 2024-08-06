@@ -100,6 +100,7 @@ systemctl enable podman.socket
 systemctl enable brew-setup.service
 systemctl enable brew-upgrade.timer
 systemctl enable brew-update.timer
+systemctl --global enable podman-auto-update.timer
 
 
 # modifications to /etc/
