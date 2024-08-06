@@ -4,6 +4,8 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
+# Convince the installer we are in CI
+touch /.dockerenv
 
 ### Install packages
 
@@ -11,6 +13,18 @@ RELEASE="$(rpm -E %fedora)"
 # Fonts
 curl -Lo /etc/yum.repos.d/atim-ubuntu-fonts-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/atim/ubuntu-fonts/repo/fedora-"${RELEASE}"/atim-ubuntu-fonts-fedora-"${RELEASE}".repo
 curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${RELEASE}"/che-nerd-fonts-fedora-"${RELEASE}".repo
+
+# Homebrew
+# Make these so script will work
+mkdir -p /var/home
+mkdir -p /var/roothome
+
+# Brew Install Script
+curl -Lo /tmp/brew-install https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+chmod +x /tmp/brew-install
+/tmp/brew-install
+tar --zstd -cvf /usr/share/homebrew.tar.zst /home/linuxbrew/.linuxbrew
+
 
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -83,6 +97,9 @@ rpm-ostree install code
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+systemctl enable brew-setup.service
+systemctl enable brew-upgrade.timer
+systemctl enable brew-update.timer
 
 
 # modifications to /etc/

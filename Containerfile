@@ -51,7 +51,13 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
 # Repos for vscode
-COPY repos/vscode.repo /etc/yum.repos.d/vscode.repo
+COPY system_files/etc/yum.repos.d/vscode.repo /etc/yum.repos.d/vscode.repo
+
+# Systemd units for Homebrew
+COPY system_files/usr/lib/systemd/system/* /usr/lib/systemd/system/
+
+# Homebrew bash completions
+COPY system_files/usr/etc/profile.d/brew-bash-completion.sh /usr/etc/profile.d/brew-bash-completion.sh
 
 COPY build.sh /tmp/build.sh
 
