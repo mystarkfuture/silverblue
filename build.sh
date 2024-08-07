@@ -26,7 +26,6 @@ chmod +x /tmp/brew-install
 tar --zstd -cvf /usr/share/homebrew.tar.zst /home/linuxbrew/.linuxbrew
 
 
-
 # Packages can be installed from any enabled yum repo on the image.
 # RPMfusion repos are available by default in ublue main images
 # List of rpmfusion packages can be found here:
@@ -93,9 +92,6 @@ rpm-ostree install podman-compose
 rpm-ostree install podman-tui
 rpm-ostree install podmansh
 rpm-ostree install code
-
-# # Removed packages
-rpm-ostree uninstall gnome-extensions-app
 
 #### Example for enabling a System Unit File
 
