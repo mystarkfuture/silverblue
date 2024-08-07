@@ -94,6 +94,9 @@ rpm-ostree install podman-tui
 rpm-ostree install podmansh
 rpm-ostree install code
 
+# # Removed packages
+rpm-ostree uninstall gnome-extensions-app
+
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
