@@ -11,8 +11,9 @@ touch /.dockerenv
 
 # COPR Repos
 # Fonts
-curl -Lo /etc/yum.repos.d/atim-ubuntu-fonts-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/atim/ubuntu-fonts/repo/fedora-"${RELEASE}"/atim-ubuntu-fonts-fedora-"${RELEASE}".repo
+curl -Lo /etc/yum.repos.d/_copr_atim-ubuntu-fonts-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/atim/ubuntu-fonts/repo/fedora-"${RELEASE}"/atim-ubuntu-fonts-fedora-"${RELEASE}".repo
 curl -Lo /etc/yum.repos.d/_copr_che-nerd-fonts-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${RELEASE}"/che-nerd-fonts-fedora-"${RELEASE}".repo
+curl -Lo /etc/yum.repos.d/_copr_robot-veracrypt-fedora-"${RELEASE}".repo https://copr.fedorainfracloud.org/coprs/robot/veracrypt/repo/fedora-"${RELEASE}"/robot-veracrypt-fedora-"${RELEASE}".repo
 
 # Homebrew
 # Make these so script will work
@@ -55,6 +56,8 @@ rpm-ostree install ulauncher
 rpm-ostree install zsh
 rpm-ostree install wireguard-tools
 rpm-ostree install fastfetch
+rpm-ostree install alacritty
+rpm-ostree install veracrypt
 
 # # build libs
 # rpm-ostree install gcc
