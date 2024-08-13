@@ -56,7 +56,6 @@ rpm-ostree install ulauncher
 rpm-ostree install zsh
 rpm-ostree install wireguard-tools
 rpm-ostree install fastfetch
-rpm-ostree install alacritty
 rpm-ostree install veracrypt
 
 # # build libs
